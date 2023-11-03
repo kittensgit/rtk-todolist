@@ -9,8 +9,13 @@ const App = () => {
     return (
         <div>
             <TodoForm />
-            {todos.map((todo, index) => (
-                <Todo key={todo.id} id={todo.id} task={todo.task} />
+            {todos.map((todo) => (
+                <Todo
+                    key={todo.id}
+                    id={todo.id}
+                    task={todo.task}
+                    complete={todo.complete}
+                />
             ))}
         </div>
     );

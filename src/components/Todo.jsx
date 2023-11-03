@@ -1,12 +1,19 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { deleteTodo } from '../redux/todoSlice';
+import { deleteTodo, toggleTodo } from '../redux/todoSlice';
 
-const Todo = ({ id, task }) => {
+const Todo = ({ id, task, complete }) => {
     const dispatch = useDispatch();
     return (
         <div>
-            {task}
+            <span
+                onClick={() => {
+                    dispatch(toggleTodo(id));
+                }}
+                className={complete ? 'complete' : ''}
+            >
+                {task}
+            </span>
             <button
                 onClick={() => {
                     dispatch(deleteTodo(id));
